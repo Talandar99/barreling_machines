@@ -1,13 +1,12 @@
 local function assert_entity_is_assembling_machine(name)
-	local proto = prototypes.entity[name] or (game and game.entity_prototypes and game.entity_prototypes[name])
-	assert(
-		proto,
-		"\n\n[img=utility/warning_icon] Missing entity prototype: "
-			.. name
-			.. "[img=utility/warning_icon]"
-			.. "!\n\nA mod has removed this barreling machine prototype."
-			.. "\nExpected type: assembling-machine\n\n"
-	)
+	-- We use ONLY the new Factorio 2.0+ syntax
+	local proto = prototypes.entity[name]
+
+	-- If the prototype was deleted by another mod, don't crash hard, but write a log or skip
+	if not proto then
+		log("Barreling Machines: Prototype " .. tostring(name) .. " was removed by another mod. Skipping checks.")
+		return
+	end
 
 	assert(
 		proto.type == "assembling-machine",
