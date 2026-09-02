@@ -1,31 +1,23 @@
 -----------------------------------------------------------------------------------------------------------------------
 -- barreling category
 -----------------------------------------------------------------------------------------------------------------------
-local original_recipes = {}
-for name, _ in pairs(data.raw.recipe) do
-	table.insert(original_recipes, name)
-end
-
-for name, recipe in pairs(data.raw.recipe) do
-	if recipe and string.sub(name, -6) == "barrel" and string.len(name) > 6 then
-		if not recipe.additional_categories then
-			recipe.additional_categories = {}
+for _, fluid in pairs(data.raw.fluid) do
+	if data.raw.recipe["empty-" .. fluid.name .. "-barrel"] then
+		data.raw.recipe["empty-" .. fluid.name .. "-barrel"].subgroup = "empty-steel-barrel"
+		data.raw.recipe["empty-" .. fluid.name .. "-barrel"].factoriopedia_alternative = nil
+		if data.raw.recipe["fill-" .. fluid.name .. "-barrel"] then
+			data.raw.recipe["fill-" .. fluid.name .. "-barrel"].subgroup = "fill-steel-barrel"
+			data.raw.recipe["fill-" .. fluid.name .. "-barrel"].factoriopedia_alternative = nil
 		end
-		table.insert(recipe.additional_categories, "barreling")
+		if data.raw.recipe[fluid.name .. "-barrel"] then
+			data.raw.recipe[fluid.name .. "-barrel"].subgroup = "fill-steel-barrel"
+			data.raw.recipe[fluid.name .. "-barrel"].factoriopedia_alternative = nil
+		end
+		if data.raw.item[fluid.name .. "-barrel"] then
+			data.raw.item[fluid.name .. "-barrel"].subgroup = "fill-steel-barrel"
+			data.raw.item[fluid.name .. "-barrel"].factoriopedia_alternative = nil
+		end
 	end
 end
-if data.raw["recipe"]["titanium-barrel"] ~= nil then
-	data.raw["recipe"]["titanium-barrel"].additional_categories = {}
-end
-if data.raw["recipe"]["cargo-crate-barrel"] ~= nil then
-	data.raw["recipe"]["cargo-crate-barrel"].additional_categories = {}
-end
-if data.raw["recipe"]["cargo-crate-barrel"] ~= nil then
-	data.raw["recipe"]["unpack-cargo-crate-barrel"].additional_categories = {}
-end
-if data.raw["recipe"]["cargo-crate-titanium-barrel"] ~= nil then
-	data.raw["recipe"]["cargo-crate-titanium-barrel"].additional_categories = {}
-end
-if data.raw["recipe"]["cargo-crate-titanium-barrel"] ~= nil then
-	data.raw["recipe"]["unpack-cargo-crate-titanium-barrel"].additional_categories = {}
-end
+
+require("prototypes.titanium-barreling")
