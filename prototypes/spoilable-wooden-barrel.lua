@@ -48,7 +48,6 @@ end
 
 function create_wooden_barrel_recipe(params)
 	if not params or not params.name then
-		log("Error: create_wooden_barrel_recipe requires 'name'.")
 		return nil
 	end
 

@@ -305,7 +305,7 @@ local function process_fluids(fluids, technology, empty_barrel_item)
 		return
 	end
 
-	for name, fluid in pairs(fluids) do
+	for _, fluid in pairs(fluids) do
 		process_fluid(fluid, technology, empty_barrel_item)
 	end
 end
