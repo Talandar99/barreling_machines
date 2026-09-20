@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-09-20
+  Changes:
+    - Updated to 2.1
+    - Added wooden barrels
+    - Added wooden barrel spoiling mechanic
+    - Reworked graphics
+    - Updated recipes
+---------------------------------------------------------------------------------------------------
 Version: 0.1.6
 Date: 2026-04-19
   Bugfixes:
