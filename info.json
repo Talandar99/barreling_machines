@@ -1,12 +1,17 @@
 {
     "name": "barreling_machines",
-    "version": "0.1.6",
+    "version": "1.0.0",
     "title": "Barreling Machines",
     "author": "Talandar",
     "dependencies": [
         "base >= 2.0",
-        "? diesel_machines",
-        "! pelagos-autobarreling"
+        "? diesel_engine",
+        "? lignumis",
+        "! pelagos-autobarreling",
+        "! TS_Pelagos_CF",
+        "! TS_Diesel_Cargo_Ships_Fork",
+        "! barreling-group2",
+        "! TIMSABA"
     ],
     "description": "Adds barreling machines with different stats and power sources",
     "factorio_version": "2.1"
