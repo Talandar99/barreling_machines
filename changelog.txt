@@ -5,6 +5,7 @@ Date: 2026-09-20
     - Updated to 2.1
     - Added wooden barrels
     - Added wooden barrel spoiling mechanic
+    - Added lignumis compatibility for wooden barrels and burner barreling machine
     - Reworked graphics
     - Updated recipes
 ---------------------------------------------------------------------------------------------------
