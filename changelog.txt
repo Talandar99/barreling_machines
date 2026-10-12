@@ -4,7 +4,7 @@ Date: 2026-10-12
   Changes:
     - added Arig compat. You can now spoil pure sand into regular sand
   Bugfixes:
-    - fixed spelling in locale and on item and on recipes (liquification -> liquefaction)
+    - fixed spelling in locale and on item and recipe (liquification -> liquefaction)
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.1
 Date: 2026-09-25
