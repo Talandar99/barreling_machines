@@ -1,9 +1,4 @@
-function create_wooden_barrel_item(params)
-	if not params or not params.name then
-		log("Error: create_wooden_barrel_item requires 'name'.")
-		return nil
-	end
-
+function create_wooden_barrel(params, ingredients)
 	local empty_barrel = data.raw.item["wooden-barrel"]
 	local default_icon_size = empty_barrel and empty_barrel.icon_size or defines.default_icon_size
 	local default_stack = empty_barrel and empty_barrel.stack_size or 10
@@ -43,42 +38,39 @@ function create_wooden_barrel_item(params)
 	}
 
 	data:extend({ barrel_item })
+
+	if ingredients then
+		local barrel_recipe = {
+			type = "recipe",
+			name = params.name,
+			localised_name = params.localised_name,
+			icons = params.recipe_icons or params.icons,
+			icon = params.recipe_icon or params.icon,
+			icon_size = params.recipe_icon_size or params.icon_size,
+			subgroup = params.subgroup or "spoilable-wooden-barrel",
+			categories = params.categories or { "wooden-barreling" },
+			energy_required = params.energy_required or 0.2,
+			enabled = params.enabled or false,
+			ingredients = ingredients,
+			results = params.results or {
+				{ type = "item", name = params.name, amount = 1 },
+			},
+			crafting_machine_tint = params.crafting_machine_tint,
+			hide_from_player_crafting = params.hide_from_player_crafting,
+		}
+
+		data:extend({ barrel_recipe })
+
+		local tech_name = params.technology or "spoilable-wooden-barrels"
+		local tech = data.raw["technology"][tech_name]
+		if tech then
+			tech.effects = tech.effects or {}
+			table.insert(tech.effects, {
+				type = "unlock-recipe",
+				recipe = params.name,
+			})
+		end
+	end
+
 	return barrel_item
-end
-
-function create_wooden_barrel_recipe(params)
-	if not params or not params.name then
-		return nil
-	end
-
-	local barrel_recipe = {
-		type = "recipe",
-		name = params.name,
-		localised_name = params.localised_name,
-		icons = params.icons,
-		icon = params.icon,
-		icon_size = params.icon_size,
-		subgroup = params.subgroup or "spoilable-wooden-barrel",
-		categories = params.categories or { "wooden-barreling" },
-		energy_required = params.energy_required or 0.2,
-		enabled = params.enabled or false,
-		ingredients = params.ingredients or {},
-		results = params.results or {},
-		crafting_machine_tint = params.crafting_machine_tint,
-		hide_from_player_crafting = params.hide_from_player_crafting,
-	}
-
-	data:extend({ barrel_recipe })
-
-	local tech_name = params.technology or "spoilable-wooden-barrels"
-	local tech = data.raw["technology"][tech_name]
-	if tech then
-		tech.effects = tech.effects or {}
-		table.insert(tech.effects, {
-			type = "unlock-recipe",
-			recipe = params.name,
-		})
-	end
-
-	return barrel_recipe
 end

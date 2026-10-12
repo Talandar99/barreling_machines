@@ -2,6 +2,13 @@
 Version: 0.2.1
 Date: 2026-09-25
   Changes:
+    - added Arig compat. You can now spoil pure sand into regular sand
+  Bugfixes:
+    - fixed spelling in locale and on item and on recipes (liquification -> liquefaction)
+---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+Date: 2026-09-25
+  Changes:
     - Updated animation speed
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
