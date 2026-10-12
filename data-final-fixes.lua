@@ -66,7 +66,7 @@ if mods["space-age"] then
 	})
 
 	create_wooden_barrel_item({
-		name = "coal-liquification-wooden-barrel",
+		name = "coal-liquefaction-wooden-barrel",
 		subgroup = "spoilable-wooden-barrel",
 		side_color = { r = 0.50, g = 0.13, b = 0.0, a = 0.8 },
 		top_color = { r = 0.3, g = 0.3, b = 0.3, a = 0.9 },
@@ -75,14 +75,14 @@ if mods["space-age"] then
 	})
 
 	create_wooden_barrel_recipe({
-		name = "coal-liquification-wooden-barrel",
+		name = "coal-liquefaction-wooden-barrel",
 		ingredients = {
 			{ type = "item", name = "wooden-barrel", amount = 1 },
 			{ type = "item", name = "coal", amount = 20 },
 			{ type = "fluid", name = "steam", amount = 200 },
 		},
 		results = {
-			{ type = "item", name = "coal-liquification-wooden-barrel", amount = 1 },
+			{ type = "item", name = "coal-liquefaction-wooden-barrel", amount = 1 },
 		},
 	})
 end
