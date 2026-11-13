@@ -127,12 +127,12 @@ if mods["space-age"] then
 			},
 		})
 
-		if data.raw["technology"]["spoilable-wooden-barrel"] then
-			data.raw["technology"]["spoilable-wooden-barrel"].effects = data.raw["technology"]["spoilable-wooden-barrel"].effects
+		if data.raw["technology"]["spoilable-wooden-barrels"] then
+			data.raw["technology"]["spoilable-wooden-barrels"].effects = data.raw["technology"]["spoilable-wooden-barrels"].effects
 				or {}
-			table.insert(data.raw["technology"]["spoilable-wooden-barrel"].effects, {
+			table.insert(data.raw["technology"]["spoilable-wooden-barrels"].effects, {
 				type = "unlock-recipe",
-				recipe = "empty-sand-wooden-barrels",
+				recipe = "empty-sand-wooden-barrel",
 			})
 		end
 	end

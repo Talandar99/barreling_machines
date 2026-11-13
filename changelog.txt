@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.1
+Date: 2026-11-13
+  Bugfixes:
+    - fixed typo in technology name resulting in sticky sand wooden barrel not
+      being assigned to spoilable-wooden-barrels.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.0
 Date: 2026-10-12
   Changes:
